@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
+/*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 15:28:13 by daniel149af       #+#    #+#             */
-/*   Updated: 2024/10/23 15:43:01 by daafonso         ###   ########.fr       */
+/*   Updated: 2024/10/23 18:57:05 by daniel149af      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,10 @@ size_t	find_format(va_list args, char format)
 	len = 0;
 	if (format == 'c')
 		len += ft_putchar_v2(va_arg(args, int));
-	// else if (format == 's')
-	// {
-
-	// }
-	// else if (format == 'p')
-	// {
-
-	// }
+	else if (format == 's')
+		len += ft_putstr_v2(va_arg(args, char *));
+	else if (format == 'p')
+		len += ft_putptr(va_arg(args, void *));
 	// else if (format == 'd' || format == 'i')
 	// {
 
@@ -45,36 +41,44 @@ size_t	find_format(va_list args, char format)
 	// {
 
 	// }
-	return (0);
+	return (len);
 }
 
 int	ft_printf(const char *str, ...)
 {
 	size_t	i;
-	size_t	len;
+	int		len;
 	va_list	args;
 
 	i = 0;
 	len = 0;
+	if (!str)
+		return (0);
 	va_start(args, str);
 	while (str[i])
 	{
 		if (str[i] == '%')
 		{
 			len += find_format(args, str[i + 1]);
+			i++;
 		}
-		//write(1, &str[i], 1);
+		else
+			len += ft_putchar_v2(str[i]);
 		i++;
 	}
-	return (0);
+	ft_putchar_v2('\n');
+	va_end(args);
+	return (len);
 }
 
 int	main(void)
 {
-	char	c;
+	char	*str;
+	int		result;
 
-	c = 'A';
-	ft_printf("Hello: %c", c);
+	str = "Arya Stark";
+	result = ft_printf("Your output: %p", str);
+	printf("Length: %d\n", result);
 	return (0);
 }
 /*
@@ -87,5 +91,8 @@ Cette macro initialise la variable ap (de type va_list) pour commencer à lire l
 Le paramètre last représente le dernier argument fixe de la fonction, c'est-à-dire l'argument qui précède les arguments variables.
 
 va_arg( aVaList, parameterType):
-permet d'extraire le paramètre suivant.
+Permet d'extraire le paramètre suivant.
+
+va_end(args):
+Nettoie la mémoire et termine la gestion de la liste d'arguments
 */
