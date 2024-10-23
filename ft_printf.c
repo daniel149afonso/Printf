@@ -6,35 +6,42 @@
 /*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 15:28:13 by daniel149af       #+#    #+#             */
-/*   Updated: 2024/10/22 17:13:49 by daniel149af      ###   ########.fr       */
+/*   Updated: 2024/10/23 14:34:06 by daniel149af      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	find_format(char *str, size_t i)
+int	ft_putchar_v2(char c, int fd)
 {
-	if (str[++i] == 'c')
+	write(1, &c, 1);
+	return (1);
+}
+
+size_t	find_format(va_list args, char format)
+{
+	size_t	len;
+
+	len = 0;
+	if (format == 'c')
+		len += ft_putchar_v2(var_arg(args, int));
+	else if (format == 's')
 	{
 
 	}
-	else if (str[++i] == 's')
+	else if (format == 'p')
 	{
 
 	}
-	else if (str[++i] == 'p')
+	else if (format == 'd' || format == 'i')
 	{
 
 	}
-	else if (str[++i] == 'd' || str[++i] == 'i')
+	else if (format == 'p')
 	{
 
 	}
-	else if (str[++i] == 'p')
-	{
-
-	}
-	else if (str[++i] == 'x' || str[++i] == 'X')
+	else if (format == 'x' || format == 'X')
 	{
 
 	}
@@ -53,7 +60,7 @@ int	ft_printf(const char *str, ...)
 	{
 		if (str[i] == '%')
 		{
-
+			len += find_format(args, (char *)str[i + 1]);
 		}
 		write(1, &str[i], 1);
 		i++;
@@ -63,7 +70,10 @@ int	ft_printf(const char *str, ...)
 
 int	main(void)
 {
-	ft_printf("Hello");
+	int	i;
+
+	i = 0;
+	ft_printf("Hello%d", i);
 	return (0);
 }
 /*
