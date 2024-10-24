@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
+/*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 15:28:13 by daniel149af       #+#    #+#             */
-/*   Updated: 2024/10/23 18:57:05 by daniel149af      ###   ########.fr       */
+/*   Updated: 2024/10/24 18:38:55 by daafonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putchar_v2(char c)
+int	ft_printchar(char c)
 {
 	write(1, &c, 1);
 	return (1);
@@ -24,11 +24,11 @@ size_t	find_format(va_list args, char format)
 
 	len = 0;
 	if (format == 'c')
-		len += ft_putchar_v2(va_arg(args, int));
+		len += ft_printchar(va_arg(args, int));
 	else if (format == 's')
-		len += ft_putstr_v2(va_arg(args, char *));
+		len += ft_printstr(va_arg(args, char *));
 	else if (format == 'p')
-		len += ft_putptr(va_arg(args, void *));
+		len += ft_printptr(va_arg(args, uintptr_t));
 	// else if (format == 'd' || format == 'i')
 	// {
 
@@ -63,10 +63,10 @@ int	ft_printf(const char *str, ...)
 			i++;
 		}
 		else
-			len += ft_putchar_v2(str[i]);
+			len += ft_printchar(str[i]);
 		i++;
 	}
-	ft_putchar_v2('\n');
+	ft_printchar('\n');
 	va_end(args);
 	return (len);
 }

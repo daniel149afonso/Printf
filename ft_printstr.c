@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putptr.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_v2.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/23 18:57:39 by daniel149af       #+#    #+#             */
-/*   Updated: 2024/10/23 20:56:17 by daafonso         ###   ########.fr       */
+/*   Created: 2024/10/08 16:53:17 by daafonso          #+#    #+#             */
+/*   Updated: 2024/10/24 14:35:43 by daafonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_put_ptr();
-
-int	ft_putptr(void *ptr)
+int	ft_printstr(char *s)
 {
-    int len;
+	size_t	i;
 
-    len = 0;
-    len += write(1, "0x", 2);
-    if (ptr == 0)
-        len += write(1, "0", 1);
-    else
-    {
-        ft_put_ptr()
-    }
+	i = 0;
+	if (!s)
+		s = "(null)";
+	while (s[i])
+		i++;
+	write(1, s, i);
+
+	return (ft_strlen_v2(s));
 }
+
+/*int	main(void)
+{
+	ft_putstr_fd("Winterfel", 1);
+	return (0);
+}*/
