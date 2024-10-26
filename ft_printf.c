@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
+/*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 15:28:13 by daniel149af       #+#    #+#             */
-/*   Updated: 2024/10/24 18:38:55 by daafonso         ###   ########.fr       */
+/*   Updated: 2024/10/26 17:51:56 by daniel149af      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,19 +28,19 @@ size_t	find_format(va_list args, char format)
 	else if (format == 's')
 		len += ft_printstr(va_arg(args, char *));
 	else if (format == 'p')
-		len += ft_printptr(va_arg(args, uintptr_t));
+		len += ft_printptr(va_arg(args, unsigned long long));
 	// else if (format == 'd' || format == 'i')
 	// {
 
 	// }
-	// else if (format == 'p')
-	// {
-
-	// }
-	// else if (format == 'x' || format == 'X')
-	// {
-
-	// }
+	else if (format == '%')
+	{
+		len += ft_printchar('%');
+	}
+	else if (format == 'x' || format == 'X')
+	{
+		len += ft_printhex(va_arg(args, unsigned int), format);
+	}
 	return (len);
 }
 
@@ -73,12 +73,13 @@ int	ft_printf(const char *str, ...)
 
 int	main(void)
 {
-	char	*str;
+	int		nb;
 	int		result;
 
-	str = "Arya Stark";
-	result = ft_printf("Your output: %p", str);
+	nb = 14302;
+	result = ft_printf("Your output: %x", nb);
 	printf("Length: %d\n", result);
+	printf("%x\n", nb);
 	return (0);
 }
 /*
