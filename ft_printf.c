@@ -6,7 +6,7 @@
 /*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 15:28:13 by daniel149af       #+#    #+#             */
-/*   Updated: 2024/10/26 17:51:56 by daniel149af      ###   ########.fr       */
+/*   Updated: 2024/10/28 13:51:17 by daniel149af      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,17 @@ size_t	find_format(va_list args, char format)
 	// {
 
 	// }
-	else if (format == '%')
+	else if (format == 'u')
 	{
-		len += ft_printchar('%');
+		len += ft_print_unsigned(va_arg(args, unsigned int));
 	}
 	else if (format == 'x' || format == 'X')
 	{
 		len += ft_printhex(va_arg(args, unsigned int), format);
+	}
+	else if (format == '%')
+	{
+		len += ft_printchar('%');
 	}
 	return (len);
 }
