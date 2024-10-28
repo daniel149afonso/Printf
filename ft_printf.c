@@ -6,7 +6,7 @@
 /*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 15:28:13 by daniel149af       #+#    #+#             */
-/*   Updated: 2024/10/28 15:49:11 by daafonso         ###   ########.fr       */
+/*   Updated: 2024/10/28 17:41:35 by daafonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,13 +66,13 @@ int	ft_printf(const char *str, ...)
 
 // int	main(void)
 // {
-// 	unsigned int nb;
 // 	int	result;
+// 	int	nb = 10000;
 
-// 	nb = 14302;
-// 	result = ft_printf("Your output: %u", nb);
-// 	printf("Length: %d\n", result);
-// 	printf("%u\n", nb);
+// 	result = ft_printf("%x", nb);
+// 	write(1, "\n", 1);
+// 	printf("Length: %x\n", result);
+// 	//printf("%d\n", nb);
 // 	return (0);
 // }
 // va_list args:

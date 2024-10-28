@@ -6,7 +6,7 @@
 /*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 18:27:16 by daafonso          #+#    #+#             */
-/*   Updated: 2024/10/28 15:09:18 by daafonso         ###   ########.fr       */
+/*   Updated: 2024/10/28 16:28:26 by daafonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,13 @@ int	ft_nbrlen(int nb)
 	int	count;
 
 	count = 0;
+	if (nb == 0)
+	{
+		count++;
+		return (count);
+	}
+	if (nb < 0)
+		count++;
 	while (nb != 0)
 	{
 		nb = nb / 10;

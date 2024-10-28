@@ -6,7 +6,7 @@
 /*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 13:44:44 by daniel149af       #+#    #+#             */
-/*   Updated: 2024/10/28 15:35:59 by daafonso         ###   ########.fr       */
+/*   Updated: 2024/10/28 16:28:57 by daafonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@ int	ft_unsigned_len(unsigned int nb)
 	int	count;
 
 	count = 0;
+	if (nb == 0)
+	{
+		count++;
+		return (count);
+	}
 	while (nb != 0)
 	{
 		nb /= 10;
