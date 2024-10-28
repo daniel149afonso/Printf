@@ -1,8 +1,14 @@
 NAME =	libftprintf.a
 
-SRC =	ft_printf.c #ajouter les fichiers suivants
+SRC =	ft_printf.c \
+		ft_printstr.c \
+		ft_strlen_v2.c \
+		ft_printnbr.c \
+		ft_printptr.c \
+		ft_printhex.c \
+		ft_print_unsigned.c
 
-OBJS = 	$(SRC:.c = .o)
+OBJS = 	$(SRC:.c=.o)
 
 CC = 	gcc
 FLAGS =	-Wall -Werror -Wextra
@@ -17,9 +23,9 @@ all: $(NAME)
 clean:
 		$(RM) $(OBJS)
 
-flcean: clean
+fclean: clean
 		$(RM) $(NAME)
 
-re:		flcean all
+re:		fclean all
 
 .PHONY:	all clean fclean re

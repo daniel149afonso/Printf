@@ -6,7 +6,7 @@
 /*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 15:28:13 by daniel149af       #+#    #+#             */
-/*   Updated: 2024/10/24 19:38:52 by daafonso         ###   ########.fr       */
+/*   Updated: 2024/10/28 15:49:11 by daafonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	ft_printchar(char c)
 	return (1);
 }
 
-size_t	find_format(va_list args, char format)
+int	find_format(va_list args, char format)
 {
 	size_t	len;
 
@@ -28,19 +28,15 @@ size_t	find_format(va_list args, char format)
 	else if (format == 's')
 		len += ft_printstr(va_arg(args, char *));
 	else if (format == 'p')
-		len += ft_printptr(va_arg(args, uintptr_t));
+		len += ft_printptr(va_arg(args, unsigned long long));
 	else if (format == 'd' || format == 'i')
-	{
 		len += ft_printnbr(va_arg(args, int));
-	}
-	// else if (format == 'x' || format == 'X')
-	// {
-
-	// }
-	// else if (format == '%')
-	// {
-		
-	// }
+	else if (format == 'u')
+		len += ft_print_unsigned(va_arg(args, unsigned int));
+	else if (format == 'x' || format == 'X')
+		len += ft_printhex(va_arg(args, unsigned int), format);
+	else if (format == '%')
+		len += ft_printchar('%');
 	return (len);
 }
 
@@ -52,8 +48,6 @@ int	ft_printf(const char *str, ...)
 
 	i = 0;
 	len = 0;
-	if (!str)
-		return (0);
 	va_start(args, str);
 	while (str[i])
 	{
@@ -66,33 +60,34 @@ int	ft_printf(const char *str, ...)
 			len += ft_printchar(str[i]);
 		i++;
 	}
-	ft_printchar('\n');
 	va_end(args);
 	return (len);
 }
 
-int	main(void)
-{
-	int		nb;
-	int		result;
+// int	main(void)
+// {
+// 	unsigned int nb;
+// 	int	result;
 
-	nb = 42;
-	result = ft_printf("Your output: %d", nb);
-	printf("Length: %d\n", result);
-	return (0);
-}
-/*
-va_list args:
-C'est un type de variable qui représente la liste des arguments.
-Elle est utilisée pour stocker et gérer les arguments variables au sein de la fonction
+// 	nb = 14302;
+// 	result = ft_printf("Your output: %u", nb);
+// 	printf("Length: %d\n", result);
+// 	printf("%u\n", nb);
+// 	return (0);
+// }
+// va_list args:
+// C'est un type de variable qui représente la liste des arguments.
+// Elle est utilisée pour stocker et gérer les arguments variable
+//au sein de la fonction
 
-va_start(va_list ap, last):
-Cette macro initialise la variable ap (de type va_list) pour commencer à lire les arguments.
-Le paramètre last représente le dernier argument fixe de la fonction, c'est-à-dire l'argument qui précède les arguments variables.
+// va_start(va_list ap, last):
+// Cette macro initialise la variable ap(de type va_list)
+//pour commencer à lire les arguments.
+// Le paramètre last représente le dernier argument fixe de la fonction
+//c'est-à-dire l'argument qui précède les arguments variables.
 
-va_arg( aVaList, parameterType):
-Permet d'extraire le paramètre suivant.
+// va_arg( aVaList, parameterType):
+// Permet d'extraire le paramètre suivant.
 
-va_end(args):
-Nettoie la mémoire et termine la gestion de la liste d'arguments
-*/
+// va_end(args):
+// Nettoie la mémoire et termine la gestion de la liste d'arguments
