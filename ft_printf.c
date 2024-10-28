@@ -6,7 +6,7 @@
 /*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 15:28:13 by daniel149af       #+#    #+#             */
-/*   Updated: 2024/10/24 18:38:55 by daafonso         ###   ########.fr       */
+/*   Updated: 2024/10/24 19:38:52 by daafonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,17 +29,17 @@ size_t	find_format(va_list args, char format)
 		len += ft_printstr(va_arg(args, char *));
 	else if (format == 'p')
 		len += ft_printptr(va_arg(args, uintptr_t));
-	// else if (format == 'd' || format == 'i')
-	// {
-
-	// }
-	// else if (format == 'p')
-	// {
-
-	// }
+	else if (format == 'd' || format == 'i')
+	{
+		len += ft_printnbr(va_arg(args, int));
+	}
 	// else if (format == 'x' || format == 'X')
 	// {
 
+	// }
+	// else if (format == '%')
+	// {
+		
 	// }
 	return (len);
 }
@@ -73,11 +73,11 @@ int	ft_printf(const char *str, ...)
 
 int	main(void)
 {
-	char	*str;
+	int		nb;
 	int		result;
 
-	str = "Arya Stark";
-	result = ft_printf("Your output: %p", str);
+	nb = 42;
+	result = ft_printf("Your output: %d", nb);
 	printf("Length: %d\n", result);
 	return (0);
 }
