@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printhex.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
+/*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 16:46:05 by daniel149af       #+#    #+#             */
-/*   Updated: 2024/10/28 17:55:34 by daafonso         ###   ########.fr       */
+/*   Updated: 2024/10/29 15:23:30 by daniel149af      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,25 +24,24 @@ int	ft_lower_upper(unsigned int nb, int upper, int len)
 	return (len);
 }
 
-int	ft_convert_hex(unsigned int nb, int upper, int len)
+void	ft_convert_hex(unsigned int nb, int upper, int len)
 {
 	char	c;
 
 	if (nb >= 16)
 	{
-		len = ft_convert_hex(nb / 16, upper, len);
-		len = ft_convert_hex(nb % 16, upper, len);
+		ft_convert_hex(nb / 16, upper, len);
+		ft_convert_hex(nb % 16, upper, len);
 	}
 	else if (nb <= 15 && nb >= 10)
 	{
-		len += ft_lower_upper(nb, upper, len);
+		ft_lower_upper(nb, upper, len);
 	}
 	else
 	{
 		c = nb + '0';
-		len += write(1, &c, 1);
+		write(1, &c, 1);
 	}
-	return (len);
 }
 
 int	ft_printhex(unsigned int nb, char c)
@@ -60,7 +59,7 @@ int	ft_printhex(unsigned int nb, char c)
 	{
 		if (c == 'X')
 			is_upper = 1;
-		len = ft_convert_hex(nb, is_upper, len);
+		ft_convert_hex(nb, is_upper, len);
 	}
 	return (len);
 }

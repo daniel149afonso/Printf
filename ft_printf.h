@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
+/*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 16:43:21 by daniel149af       #+#    #+#             */
-/*   Updated: 2024/10/28 15:59:32 by daafonso         ###   ########.fr       */
+/*   Updated: 2024/10/29 14:45:17 by daniel149af      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdarg.h>//macros variables
 # include <stdio.h> //A SUPPRIMMER ATTENTION!!!!!!!!
+# include <stdlib.h>
 # include <unistd.h>
 
 int	ft_printf(const char *str, ...);
