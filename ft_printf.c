@@ -6,7 +6,7 @@
 /*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 15:28:13 by daniel149af       #+#    #+#             */
-/*   Updated: 2024/10/29 16:41:51 by daafonso         ###   ########.fr       */
+/*   Updated: 2024/10/29 16:51:37 by daafonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	find_format(va_list args, char format)
 	else if (format == 's')
 		len += ft_printstr(va_arg(args, char *));
 	else if (format == 'p')
-		len += ft_printptr(va_arg(args, unsigned long long));
+		len += ft_printptr(va_arg(args, unsigned long long int));
 	else if (format == 'd' || format == 'i')
 		len += ft_printnbr(va_arg(args, int));
 	else if (format == 'u')
