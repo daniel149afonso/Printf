@@ -6,7 +6,7 @@
 /*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 15:28:13 by daniel149af       #+#    #+#             */
-/*   Updated: 2024/10/29 16:51:37 by daafonso         ###   ########.fr       */
+/*   Updated: 2024/10/29 16:56:34 by daafonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	ft_printchar(char c)
 
 int	find_format(va_list args, char format)
 {
-	size_t	len;
+	int	len;
 
 	len = 0;
 	if (format == 'c')
