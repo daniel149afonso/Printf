@@ -6,7 +6,7 @@
 /*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 15:28:13 by daniel149af       #+#    #+#             */
-/*   Updated: 2024/10/28 17:41:35 by daafonso         ###   ########.fr       */
+/*   Updated: 2024/10/29 16:20:52 by daafonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,12 +67,11 @@ int	ft_printf(const char *str, ...)
 // int	main(void)
 // {
 // 	int	result;
-// 	int	nb = 10000;
 
-// 	result = ft_printf("%x", nb);
+// 	result = ft_printf("");
 // 	write(1, "\n", 1);
-// 	printf("Length: %x\n", result);
-// 	//printf("%d\n", nb);
+// 	printf("Length: %d\n", result);
+// 	printf("");
 // 	return (0);
 // }
 // va_list args:

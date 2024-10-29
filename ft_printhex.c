@@ -3,16 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printhex.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
+/*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 16:46:05 by daniel149af       #+#    #+#             */
-/*   Updated: 2024/10/29 15:23:30 by daniel149af      ###   ########.fr       */
+/*   Updated: 2024/10/29 15:38:53 by daafonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_lower_upper(unsigned int nb, int upper, int len)
+int	ft_hexlen(unsigned int nb)
+{
+	int	i;
+
+	i = 0;
+	while (nb != 0)
+	{
+		nb /= 16;
+		i++;
+	}
+	return (i);
+}
+
+void	ft_lower_upper(unsigned int nb, int upper)
 {
 	char	c;
 
@@ -20,22 +33,21 @@ int	ft_lower_upper(unsigned int nb, int upper, int len)
 		c = (nb - 10) + 'A';
 	else
 		c = (nb - 10) + 'a';
-	len += write(1, &c, 1);
-	return (len);
+	write(1, &c, 1);
 }
 
-void	ft_convert_hex(unsigned int nb, int upper, int len)
+void	ft_convert_hex(unsigned int nb, int upper)
 {
 	char	c;
 
 	if (nb >= 16)
 	{
-		ft_convert_hex(nb / 16, upper, len);
-		ft_convert_hex(nb % 16, upper, len);
+		ft_convert_hex(nb / 16, upper);
+		ft_convert_hex(nb % 16, upper);
 	}
 	else if (nb <= 15 && nb >= 10)
 	{
-		ft_lower_upper(nb, upper, len);
+		ft_lower_upper(nb, upper);
 	}
 	else
 	{
@@ -59,7 +71,8 @@ int	ft_printhex(unsigned int nb, char c)
 	{
 		if (c == 'X')
 			is_upper = 1;
-		ft_convert_hex(nb, is_upper, len);
+		ft_convert_hex(nb, is_upper);
+		len = ft_hexlen(nb);
 	}
 	return (len);
 }
