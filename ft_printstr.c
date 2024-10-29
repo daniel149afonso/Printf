@@ -6,7 +6,7 @@
 /*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 16:53:17 by daafonso          #+#    #+#             */
-/*   Updated: 2024/10/28 15:30:17 by daafonso         ###   ########.fr       */
+/*   Updated: 2024/10/29 16:23:52 by daafonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,3 +24,4 @@ int	ft_printstr(char *s)
 	write(1, s, i);
 	return (ft_strlen_v2(s));
 }
+//BUT: affiche un string avec len de retour

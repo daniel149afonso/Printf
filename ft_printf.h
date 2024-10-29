@@ -6,7 +6,7 @@
 /*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 16:43:21 by daniel149af       #+#    #+#             */
-/*   Updated: 2024/10/29 16:21:34 by daafonso         ###   ########.fr       */
+/*   Updated: 2024/10/29 16:35:36 by daafonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FT_PRINTF_H
 
 # include <stdarg.h>//macros variables
+# include <stdio.h> //A SUPPRIMMER ATTENTION!!!!!!!!
 # include <stdlib.h>
 # include <unistd.h>
 
