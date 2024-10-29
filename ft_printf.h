@@ -6,7 +6,7 @@
 /*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 16:43:21 by daniel149af       #+#    #+#             */
-/*   Updated: 2024/10/29 16:42:31 by daafonso         ###   ########.fr       */
+/*   Updated: 2024/10/29 16:42:52 by daafonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define FT_PRINTF_H
 
 # include <stdarg.h>//macros variables
-# include <stdlib.h>
 # include <unistd.h>
 
 int	ft_printf(const char *str, ...);
