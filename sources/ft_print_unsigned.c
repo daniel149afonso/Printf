@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printnbr.c                                      :+:      :+:    :+:   */
+/*   ft_print_unsigned.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
+/*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/08 18:27:16 by daafonso          #+#    #+#             */
-/*   Updated: 2024/10/28 16:28:26 by daafonso         ###   ########.fr       */
+/*   Created: 2024/10/28 13:44:44 by daniel149af       #+#    #+#             */
+/*   Updated: 2025/04/02 16:36:35 by daniel149af      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
 
-int	ft_nbrlen(int nb)
+int	ft_unsigned_len(unsigned int nb)
 {
 	int	count;
 
@@ -22,33 +22,20 @@ int	ft_nbrlen(int nb)
 		count++;
 		return (count);
 	}
-	if (nb < 0)
-		count++;
 	while (nb != 0)
 	{
-		nb = nb / 10;
+		nb /= 10;
 		count++;
 	}
 	return (count);
 }
 
-void	ft_putnbr(int n)
+void	ft_put_unsigned(unsigned int n)
 {
-	char	neg;
-
-	if (n == -2147483648)
-		write(1, "-2147483648", 11);
-	else if (n < 0)
+	if (n > 9)
 	{
-		neg = '-';
-		write(1, &neg, 1);
-		n = -n;
-		ft_putnbr(n);
-	}
-	else if (n > 9)
-	{
-		ft_putnbr(n / 10);
-		ft_putnbr(n % 10);
+		ft_print_unsigned(n / 10);
+		ft_print_unsigned(n % 10);
 	}
 	else
 	{
@@ -57,13 +44,13 @@ void	ft_putnbr(int n)
 	}
 }
 
-int	ft_printnbr(int nb)
+int	ft_print_unsigned(unsigned int nb)
 {
 	int	len;
 
 	len = 0;
-	len = ft_nbrlen(nb);
-	ft_putnbr(nb);
+	len += ft_unsigned_len(nb);
+	ft_put_unsigned(nb);
 	return (len);
 }
-//BUT: affiche un entier et retourne sa taille.
+//BUT: affiche un entier non signé et retourne sa taille.

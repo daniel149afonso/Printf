@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printstr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
+/*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 16:53:17 by daafonso          #+#    #+#             */
-/*   Updated: 2024/10/29 16:23:52 by daafonso         ###   ########.fr       */
+/*   Updated: 2025/04/02 16:37:02 by daniel149af      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
 
 int	ft_printstr(char *s)
 {

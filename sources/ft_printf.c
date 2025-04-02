@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daafonso <daafonso@student.42.fr>          +#+  +:+       +#+        */
+/*   By: daniel149afonso <daniel149afonso@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 15:28:13 by daniel149af       #+#    #+#             */
-/*   Updated: 2024/10/29 16:56:34 by daafonso         ###   ########.fr       */
+/*   Updated: 2025/04/02 16:41:25 by daniel149af      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
 
 int	ft_printchar(char c)
 {
@@ -64,16 +64,15 @@ int	ft_printf(const char *str, ...)
 	return (len);
 }
 
-// int	main(void)
-// {
-// 	int	result;
-// 	int	nb = -122;
-// 	result = ft_printf("%x", nb);
-// 	write(1, "\n", 1);
-// 	printf("Length: %d\n", result);
-// 	printf("%x", nb);
-// 	return (0);
-// }
+int	main(void)
+{
+	int	nb = -122;
+	ft_printf("%d\n", nb);
+	// write(1, "\n", 1);
+	// printf("Length: %d\n", result);
+	// printf("%x", nb);
+	return (0);
+}
 // va_list args:
 // C'est un type de variable qui représente la liste des arguments.
 // Elle est utilisée pour stocker et gérer les arguments variable

@@ -1,12 +1,14 @@
 NAME =	libftprintf.a
 
-SRC =	ft_printf.c \
-		ft_printstr.c \
-		ft_strlen_v2.c \
-		ft_printnbr.c \
-		ft_printptr.c \
-		ft_printhex.c \
-		ft_print_unsigned.c
+SRC_DIR = sources
+
+SRC =	$(SRC_DIR)/ft_printf.c \
+		$(SRC_DIR)/ft_printstr.c \
+		$(SRC_DIR)/ft_strlen_v2.c \
+		$(SRC_DIR)/ft_printnbr.c \
+		$(SRC_DIR)/ft_printptr.c \
+		$(SRC_DIR)/ft_printhex.c \
+		$(SRC_DIR)/ft_print_unsigned.c
 
 OBJS = 	$(SRC:.c=.o)
 
